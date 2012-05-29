@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+	<LinearLayout 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+	
+		<ImageView 
+			android:layout_width="50dp"
+			android:layout_height="match_parent"
+			android:src="@+id/imgLogo"/>
+	</LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+			          <TextView 
+			                android:layout_width="wrap_content"
+			            	android:id="@+id/txvName"
+			            	android:text="Nombre">
+			              </TextView>
+			         <EditText 
+			                android:layout_weight="5"
+			                android:id="@+id/edtName"
+			                >
+			              </EditText>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+			          <TextView 
+			             android:layout_width="wrap_content"
+			            android:id="@+id/txvLastName"
+			            android:text="Apellido">
+                	 </TextView>
+		         	<EditText 
+		         	    android:layout_weight="5"
+				       android:id="@+id/edtLastName">
+				       </EditText>
+        </TableRow>
+				
+        
+       
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            
+            <Button 
+            	android:id="@+id/boton"
+            	android:text="Done"
+            	android:background="@drawable/btn_default"/>
+        
+        </TableRow>
+    
+    
+    </TableLayout>
+
+</LinearLayout>
