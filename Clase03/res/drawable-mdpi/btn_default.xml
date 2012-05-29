@@ -19,5 +19,5 @@
         android:drawable="@drawable/btn_default_pressed" />
     <item android:state_enabled="false"
         android:drawable="@drawable/btn_default_normal_disable" />
-    <item  android:drawable="@drawable/btn_default_normal" />
+    <item android:drawable="@drawable/btn_default_normal" />
 </selector>

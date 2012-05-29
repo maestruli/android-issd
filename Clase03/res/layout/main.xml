@@ -11,7 +11,13 @@
 		<ImageView 
 			android:layout_width="50dp"
 			android:layout_height="match_parent"
-			android:src="@+id/imgLogo"/>
+			android:id="@+id/imgLogo"/>
+			
+		<TextView 
+			android:id="@+id/titleView"
+			android:layout_width="match_parent"
+	        android:layout_height="wrap_content"/>
+	        
 	</LinearLayout>
 
     <TableLayout
@@ -60,8 +66,8 @@
             
             <Button 
             	android:id="@+id/boton"
-            	android:text="Done"
-            	android:background="@drawable/btn_default"/>
+            	android:text="@string/done"
+            	android:background="@drawable/btn_default" />
         
         </TableRow>
     
