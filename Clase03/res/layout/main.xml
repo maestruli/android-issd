@@ -6,7 +6,8 @@
 
 	<LinearLayout 
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		android:layout_height="wrap_content"
+		android:padding="@dimen/title_padding">
 	
 		<ImageView 
 			android:layout_width="50dp"
@@ -16,7 +17,18 @@
 		<TextView 
 			android:id="@+id/titleView"
 			android:layout_width="match_parent"
-	        android:layout_height="wrap_content"/>
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/title"
+	        style="@style/title" />
+	        
+<!-- 	    <TextView  -->
+<!-- 			android:id="@+id/titleView" -->
+<!-- 			android:layout_width="match_parent" -->
+<!-- 	        android:layout_height="wrap_content" -->
+<!-- 	        android:textColor="@color/title" -->
+<!-- 	        android:layout_gravity="center" -->
+<!-- 	        android:gravity="center" -->
+<!-- 	        android:textSize="@dimen/title_size" /> -->
 	        
 	</LinearLayout>
 
@@ -67,7 +79,8 @@
             <Button 
             	android:id="@+id/boton"
             	android:text="@string/done"
-            	android:background="@drawable/btn_default" />
+            	android:background="@drawable/btn_default"
+            	style="@style/btn" />
         
         </TableRow>
     
