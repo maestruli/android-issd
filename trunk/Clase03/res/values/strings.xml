@@ -4,4 +4,6 @@
     <string name="app_name">Clase03</string>
     <string name="done">Done</string>
     <string name="title">Molina Company</string>
+    <string name="menuDone">Done</string>
+    <string name="menuCancel">Cancel</string>
 </resources>
