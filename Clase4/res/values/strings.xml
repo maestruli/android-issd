@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, Clase4Activity!</string>
+    <string name="app_name">Clase4</string>
+    <string name="contact_list">Contact List</string>
+     <string name="call">Calling contact</string>
+	<string-array name="choice">
+	    <item>Contact List</item>
+	    <item>Otros</item>
+	</string-array>
+    
+</resources>
