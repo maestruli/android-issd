@@ -11,13 +11,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import com.list.contacts.Contact;
 import com.list.contacts.ContactAdapter;
 import com.list.contacts.ContactManager;
 
 public class GoogleContactListActivity extends Activity {
+
+	private GridView list;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -26,7 +28,7 @@ public class GoogleContactListActivity extends Activity {
 
 		setContentView(R.layout.main);
 
-		GridView list = (GridView) findViewById(R.id.contacts);
+		list = (GridView) findViewById(R.id.contacts);
 
 		ContactAdapter adapter = new ContactAdapter(this, ContactManager
 				.getInstance().getAllContacts(this));
@@ -63,10 +65,13 @@ public class GoogleContactListActivity extends Activity {
 		super.onContextItemSelected(item);
 		AdapterContextMenuInfo menuInfo = (AdapterContextMenuInfo) item
 				.getMenuInfo();
-		ListView list = null;
+
 		switch (item.getItemId()) {
 		case R.id.call:
-			String name = (String) list.getAdapter().getItem(menuInfo.position);
+
+			Contact contact = (Contact) list.getAdapter().getItem(
+					menuInfo.position);
+			String name = contact.getName();
 			Toast.makeText(GoogleContactListActivity.this,
 					"Calling Contact " + name, Toast.LENGTH_LONG).show();
 			break;
