@@ -146,4 +146,9 @@ public class GoogleContactActivity extends Activity implements ContactListener {
 		removeDialog(LOADING_CONTACTS_DIALOG);
 	}
 
+	@Override
+	public void onContactFullyLoader() {
+		removeDialog(LOADING_CONTACTS_DIALOG);
+	}
+
 }
