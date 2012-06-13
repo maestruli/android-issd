@@ -9,6 +9,8 @@ import android.os.AsyncTask;
 import android.provider.Contacts;
 import android.provider.Contacts.People;
 
+import com.test.GoogleContactActivity;
+
 public class ContactManager {
 
 	private static ContactManager instance = new ContactManager();
@@ -30,35 +32,7 @@ public class ContactManager {
 	public ArrayList<Contact> getAllContacts(final Activity activity,
 			final ContactListener listener) {
 		contactsArray.clear();
-
-		// Thread thread = new Thread() {
-		//
-		// public void run() {
-		//
-		// ContentResolver cr = activity.getContentResolver();
-		// Cursor cur = cr.query(People.CONTENT_URI, null, null, null,
-		// null);
-		// if (cur.getCount() > 0) {
-		// while (cur.moveToNext()) {
-		// String id = cur.getString(cur
-		// .getColumnIndex(People._ID));
-		// String name = cur.getString(cur
-		// .getColumnIndex(People.DISPLAY_NAME));
-		// String number = getPhone(cur, cr, id);
-		// for (int i = 0; i < 10; i++) {
-		// Contact contact = new Contact(id, name, number);
-		// contactsArray.add(contact);
-		// // percentage = (count*100/cur.getCount());
-		// listener.onContactAdded(contact, i);
-		// }
-		// }
-		// }
-		//
-		// };
-		//
-		// };
-		//
-		// thread.start();
+		activity.showDialog(GoogleContactActivity.LOADING_CONTACTS_DIALOG);
 
 		this.contactListener = listener; // Creemos la variable contactListener
 		if (tasks == null) {
@@ -93,7 +67,8 @@ public class ContactManager {
 
 				protected void onPostExecute(Void result) {
 					tasks = null;
-					contactListener.contactsAdded();
+					contactListener.onContactFullyLoader();
+
 				};
 
 				@Override
