@@ -1,6 +1,8 @@
 package com.main;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +16,7 @@ public class AndroidDataBaseActivity extends Activity implements
 	private EditText lastNameText;
 	private EditText profesionText;
 	private Button save;
+	private String id;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -28,6 +31,31 @@ public class AndroidDataBaseActivity extends Activity implements
 
 		save = (Button) findViewById(R.id.save);
 		save.setOnClickListener(this);
+
+		Intent intent = getIntent();
+		if (intent != null) {
+			String action = intent.getAction();
+			if (action != null && action.equals(DataBaseHelper.MODIFY_CONTACT)) {
+				save.setText("Actualizar");
+				id = intent.getStringExtra("_id");
+				Cursor cursor = DataBaseHelper.getInstance(this)
+						.getEmployee(id);
+				int nameId = cursor.getColumnIndex("name");
+				int lastnameId = cursor.getColumnIndex("lastname");
+				int ageId = cursor.getColumnIndex("age");
+				int professionId = cursor.getColumnIndex("profession");
+				if (cursor.moveToFirst()) {
+					String name = cursor.getString(nameId);
+					String lastname = cursor.getString(lastnameId);
+					String age = cursor.getString(ageId);
+					String profession = cursor.getString(professionId);
+					nameText.setText(name);
+					lastNameText.setText(lastname);
+					ageText.setText(age);
+					profesionText.setText(profession);
+				}
+			}
+		}
 	}
 
 	public void onClick(View v) {
@@ -35,8 +63,20 @@ public class AndroidDataBaseActivity extends Activity implements
 		String age = ageText.getText().toString();
 		String lastname = lastNameText.getText().toString();
 		String profesion = profesionText.getText().toString();
-		DataBaseHelper.getInstance(this).insertAnEmployee(name, lastname, age,
-				profesion);
+		if (id == null) {
+			DataBaseHelper.getInstance(this).insertAnEmployee(name, lastname,
+					age, profesion);
+		} else {
+			DataBaseHelper.getInstance(this).updateEmployee(id, name, lastname,
+					age, profesion);
+		}
+		callList();
+
+	}
+
+	private void callList() {
+		Intent intent = new Intent(this, EmployeeListActivity.class);
+		startActivity(intent);
 
 	}
 
