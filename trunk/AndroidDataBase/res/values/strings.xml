@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, BasesdeDatosActivity!</string>
+	<string name="app_name">Bases de Datos</string>
+	<string name="nombre">Nombre</string>
+	<string name="apellido">Apellido</string>
+	<string name="edad">Edad</string>
+	<string name="cargo">Cargo</string>
+	<string name="guardar">Guardar</string>
+</resources>
